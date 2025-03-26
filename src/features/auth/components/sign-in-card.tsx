@@ -9,7 +9,13 @@ import { z } from "zod";
 
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -29,8 +35,8 @@ export const SignInCard = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: "johndoe@example.com",
+      password: "1234567890",
     },
   });
 
@@ -81,6 +87,10 @@ export const SignInCard = () => {
                 </FormItem>
               )}
             />
+            <CardDescription>
+              &#128274; Sign in with the pre-filled credentials to test the
+              application
+            </CardDescription>
             <Button disabled={isPending} size="lg" className="w-full">
               Login
             </Button>
